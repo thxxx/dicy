@@ -10,14 +10,27 @@ const Footer = () => {
         <div className="container">
           <div className="above">
             <div className="logo">
-              <Image src="/dice.png" width={40} height={40} alt="dice_logo" />
+              <img src="/dice.png" alt="dice_logo" />
               <span>Dice</span>
             </div>
             <MenuContainer>
               <div className="box">
                 <div className="label">Products</div>
-                <Link href="/solomon">Solomon</Link>
-                <Link href="/product2">Web AMA</Link>
+                <a
+                  onClick={() => {
+                    window.open("https://solomongpt.com", "_blank");
+                  }}>
+                  Solomon
+                </a>
+                <a
+                  onClick={() => {
+                    window.open(
+                      "https://chrome.google.com/webstore/detail/webama-web-assistant-like/abgnbgkcmpikahkbccpjhbekkhimbjpi/related?hl=en",
+                      "_blank"
+                    );
+                  }}>
+                  Web AMA
+                </a>
               </div>
               <div className="box">
                 <div className="label">Company</div>
@@ -48,6 +61,13 @@ const FooterContainer = styled.footer`
   justify-content: center;
   background: ${({ theme }) => theme.dark};
   color: white;
+
+  a {
+    cursor: pointer;
+    &:hover {
+      color: white;
+    }
+  }
 
   .inner {
     width: 100%;
@@ -88,6 +108,14 @@ const FooterContainer = styled.footer`
         color: white;
         display: flex;
         flex-direction: row;
+        align-items: center;
+        justify-content: start;
+
+        img {
+          width: 37px;
+          height: 36px;
+        }
+
         span {
           margin-left: 10px;
         }

@@ -16,22 +16,38 @@ import {
 } from "@chakra-ui/react";
 import useWindowDimensions from "../hook/useWindowDimensions";
 
-const AppBar = () => {
+const AppBar = ({ page = "home" }: { page?: string }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
   const { width, height } = useWindowDimensions();
 
-  console.log("ㄱ가로 길이가", width);
-
   return (
     <>
-      <AppContainer>
+      <AppContainer page={page}>
         <InnerContainer>
-          <div>Dice</div>
+          <div>
+            <Link className="logo_container" href="/">
+              <img className="logo" src="/dice.png" alt="dice_logo" />
+              <span>Dice</span>
+            </Link>
+          </div>
           {width > 500 ? (
             <div className="pages">
               <Link href="/about">About</Link>
-              <Link href="/contact">Contact us</Link>
+              <Link
+                href="/blog"
+                style={{
+                  fontWeight: `${page === "blog" ? 700 : 500}`,
+                }}>
+                Blog
+              </Link>
+              <Link
+                href="/contact"
+                style={{
+                  fontWeight: `${page === "contact" ? 700 : 500}`,
+                }}>
+                Contact us
+              </Link>
             </div>
           ) : (
             <HamburgerIcon width={8} height={8} onClick={onOpen} />
@@ -48,6 +64,7 @@ const AppBar = () => {
               <LinkContainer>
                 <Link href="/">Home</Link>
                 <Link href="/about">About</Link>
+                <Link href="/blog">Blog</Link>
                 <Link href="/contact">Contact us</Link>
               </LinkContainer>
             </DrawerBody>
@@ -66,7 +83,7 @@ const AppBar = () => {
 
 export default React.memo(AppBar);
 
-const AppContainer = styled.div`
+const AppContainer = styled.div<{ page: string }>`
   position: absolute;
   top: 0px;
   left: 0px;
@@ -77,8 +94,9 @@ const AppContainer = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  background: ${({ theme }) => theme.dark};
-  color: white;
+  background: ${({ theme, page }) =>
+    page === "home" ? theme.dark : "rgba(255,255,255,0.3)"};
+  color: ${({ theme, page }) => (page === "home" ? "white" : theme.dark)}; ;
 `;
 
 const InnerContainer = styled.div`
@@ -88,6 +106,21 @@ const InnerContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  .logo_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 22px;
+    font-weight: 600;
+  }
+  .logo {
+    width: 34px;
+    height: 33px;
+    margin-right: 6px;
+  }
 
   .pages {
     display: flex;

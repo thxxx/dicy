@@ -3,13 +3,21 @@ import Image from "next/image";
 import AppBar from "../components/AppBar";
 import styled from "@emotion/styled";
 import MainContainer, { MainContainerOuter } from "../components/MainContainer";
-import { Button, Input } from "@chakra-ui/react";
+import { Button, Input, useToast } from "@chakra-ui/react";
 import { useState } from "react";
 
 export default function Home() {
   const [mail, setMail] = useState("");
+  const toast = useToast();
 
-  const joinWaitlist = () => {};
+  const joinWaitlist = () => {
+    setMail("");
+    toast({
+      description: "Thank you for join!",
+      status: "success",
+      isClosable: true,
+    });
+  };
 
   return (
     <>
@@ -23,18 +31,37 @@ export default function Home() {
       <HeroSection ta="flex-start">
         <div className="inner">
           <h1>
-            Make the World Better
+            We are building
             <br />
-            by Artificial Intelligence{" "}
+            AI experts, give answers through conversation
           </h1>
-          <div className="desc">All the informations you need</div>
+          <div className="desc">
+            It{"'"}s like Quora through conversational AI
+          </div>
         </div>
       </HeroSection>
       <Section bg="rgba(249,249,249,1)">
         <div className="inner">
+          <h1>About us</h1>
+          <p className="sub">Products we launched.</p>
+          <div className="content"></div>
+        </div>
+      </Section>
+      <Section bg="rgba(249,249,249,1)">
+        <div className="inner">
           <h1>Product</h1>
+          <p className="sub">Products we launched.</p>
           <div className="content">
-            <div className="card">Document Assistant GPT</div>
+            <div className="card">
+              <div
+                className="img"
+                style={{ backgroundImage: "url('/solomon.png')" }}
+              />
+              <div className="desc_container">
+                <p>Web AMA</p>
+                <p className="desc">Web Assistant like ChatGPT</p>
+              </div>
+            </div>
             <div className="card">
               <div
                 className="img"
@@ -54,6 +81,7 @@ export default function Home() {
           <div className="content">
             <p>We are diiiice</p>
             <Input
+              placeholder="contact@diceyai.com"
               value={mail}
               onChange={(e) => setMail(e.currentTarget.value)}
             />
@@ -69,6 +97,7 @@ const HeroSection = styled(MainContainerOuter)`
   width: 100%;
   background: ${({ theme }) => theme.dark};
   color: white;
+  padding: 150px 0px;
 
   .desc {
     margin-top: 15px;
@@ -78,8 +107,13 @@ const HeroSection = styled(MainContainerOuter)`
 const Section = styled(MainContainerOuter)`
   color: black;
   .inner {
+    .sub {
+      margin-top: 20px;
+    }
+
     .content {
       flex-direction: row;
+      margin-top: 70px;
 
       @media (max-width: 600px) {
         flex-direction: column;
@@ -92,8 +126,14 @@ const Section = styled(MainContainerOuter)`
         justify-content: center;
         box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.08);
         width: 300px;
-        margin: 5px;
+        margin: 15px;
         background: white;
+        cursor: pointer;
+
+        &:hover {
+          outline: 1.3px solid ${({ theme }) => theme.darkGrey};
+          box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.18);
+        }
 
         .img {
           width: 100%;
@@ -125,7 +165,7 @@ const Section = styled(MainContainerOuter)`
 const LastSection = styled(MainContainerOuter)`
   input {
     margin-top: 40px;
-    padding: 20px 25px;
+    padding: 25px 15px;
     border-radius: 6px;
     box-shadow: 5px 8px 15px rgba(0, 0, 0, 0.2);
     transition: 0.5s ease;

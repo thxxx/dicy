@@ -13,8 +13,15 @@ const Contact: NextPage = () => {
   const [comments, setComments] = useState("");
   const [mail, setMail] = useState("");
 
-  const onSubmit = () => {
-    // dbService.collection.add(body);
+  const onSubmit = async () => {
+    const body = {
+      first,
+      last,
+      comments,
+      mail,
+      createdAt: new Date(),
+    };
+    await dbService.collection("contact").add(body);
   };
 
   return (
@@ -25,7 +32,7 @@ const Contact: NextPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <AppBar />
+      <AppBar page="contact" />
       <ContactContainer>
         <div className="inner">
           <p className="title">Contact us</p>
@@ -85,7 +92,15 @@ const ContactContainer = styled(MainContainerOuter)`
   .desc {
     text-align: left;
     width: 100%;
-    margin-top: 15px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 23px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  .inner {
+    max-width: 700px;
   }
 
   .row {
