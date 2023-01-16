@@ -86,10 +86,17 @@ export default function Home() {
           <h1>Product</h1>
           <p className="sub">Products we launched.</p>
           <div className="content">
-            <div className="card">
+            <div
+              className="card"
+              onClick={() => {
+                window.open(
+                  "https://chrome.google.com/webstore/detail/webama-web-assistant-like/abgnbgkcmpikahkbccpjhbekkhimbjpi/related?hl=en",
+                  "_blank"
+                );
+              }}>
               <div
                 className="img"
-                style={{ backgroundImage: "url('/solomon.png')" }}
+                style={{ backgroundImage: "url('/webama.png')" }}
               />
               <div className="desc_container">
                 <p>Web AMA</p>
@@ -99,7 +106,11 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="card">
+            <div
+              className="card"
+              onClick={() => {
+                window.open("https://solomongpt.com", "_blank");
+              }}>
               <div
                 className="img"
                 style={{ backgroundImage: "url('/solomon.png')" }}

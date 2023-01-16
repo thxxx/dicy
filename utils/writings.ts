@@ -30,7 +30,7 @@ Solomon : <a href="https://solomongpt.com">https://solomongpt.com</a><br/><br/><
 Currently, we  fully dedicates and works around 17 hours per day, with all members being able to handle engineering tasks with deep learning research ablities.<br/><br/>
 
 Thank you for reading :)`,
-    created: "Tue Jan 17, 2023",
+    created: "Tue Jan 16, 2023",
     img: "/hall.png",
     title: "First Introducing ourselves",
     id: 1,
