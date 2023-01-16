@@ -6,6 +6,8 @@ export const theme = {
   darkGrey: "#2F3747",
   blue01: "#34b3f1",
   blue02: "#3496F1",
+  dark: "#181D31",
+  py: "60px",
 };
 
 export const lightTheme = {
