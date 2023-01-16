@@ -30,14 +30,15 @@ const Contact: NextPage = () => {
         <title>Dice</title>
         <meta name="description" content="Create AI World" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/dice.png" />
       </Head>
       <AppBar page="contact" />
       <ContactContainer>
         <div className="inner">
           <p className="title">Contact us</p>
           <div className="desc">
-            <p>Thank you for interest.</p>
+            <p>Thank you for interest</p>
+            <p>All kinds of contact are welcome.</p>
           </div>
           <div className="row">
             <div className="name">
@@ -88,15 +89,19 @@ export default Contact;
 
 const ContactContainer = styled(MainContainerOuter)`
   width: 100%;
+  padding-bottom: 200px;
 
   .desc {
     text-align: left;
     width: 100%;
-    margin-top: 40px;
+    margin-top: 30px;
     margin-bottom: 20px;
-    font-size: 23px;
-    font-weight: 600;
+    font-size: 19px;
+    font-weight: 500;
     color: rgba(0, 0, 0, 0.5);
+    p {
+      margin: 4px 0px;
+    }
   }
 
   .inner {

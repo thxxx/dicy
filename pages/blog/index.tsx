@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import React from "react";
+import React, { useEffect } from "react";
 import AppBar from "../../components/AppBar";
 import Footer from "../../components/Footer";
 import { MainContainerOuter } from "../../components/MainContainer";
@@ -17,7 +17,10 @@ const BlogPage: NextPage = () => {
           <ArticleContainer>
             {articles.map((item, i) => {
               return (
-                <Link className="card" key={item.id} href={`/blog/${item.id}`}>
+                <Link
+                  className="card"
+                  key={item.id}
+                  href={`/blog/article${item.id}`}>
                   <div
                     className="thumbnail"
                     style={{
@@ -47,7 +50,7 @@ const BlogConatainer = styled(MainContainerOuter)`
 
 const ArticleContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   padding: 100px 0px;
 
   .card {
@@ -91,7 +94,11 @@ const ArticleContainer = styled.div`
       p {
         font-weight: 700;
       }
+      .title {
+        font-size: 1.1em;
+      }
       .date {
+        margin-top: 10px;
         font-weight: 500;
         color: ${({ theme }) => theme.darkGrey + "66"};
         font-size: 0.9em;

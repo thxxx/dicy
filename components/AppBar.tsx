@@ -33,7 +33,7 @@ const AppBar = ({ page = "home" }: { page?: string }) => {
           </div>
           {width > 500 ? (
             <div className="pages">
-              <Link href="/about">About</Link>
+              {/* <Link href="/about">About</Link> */}
               <Link
                 href="/blog"
                 style={{
@@ -63,7 +63,7 @@ const AppBar = ({ page = "home" }: { page?: string }) => {
             <DrawerBody>
               <LinkContainer>
                 <Link href="/">Home</Link>
-                <Link href="/about">About</Link>
+                {/* <Link href="/about">About</Link> */}
                 <Link href="/blog">Blog</Link>
                 <Link href="/contact">Contact us</Link>
               </LinkContainer>
@@ -90,6 +90,7 @@ const AppContainer = styled.div<{ page: string }>`
   width: 100vw;
   padding: 25px 20px;
   flex: 1;
+  z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;

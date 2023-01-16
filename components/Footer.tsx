@@ -34,7 +34,7 @@ const Footer = () => {
               </div>
               <div className="box">
                 <div className="label">Company</div>
-                <Link href="/about">About</Link>
+                <Link href="/blog">Blog</Link>
                 <Link href="/contact">Contact us</Link>
               </div>
             </MenuContainer>
@@ -141,6 +141,7 @@ const FooterContainer = styled.footer`
       width: 100%;
       text-align: right;
       font-size: 0.9em;
+      color: rgba(255, 255, 255, 0.6);
     }
   }
 `;
