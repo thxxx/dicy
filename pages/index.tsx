@@ -47,7 +47,11 @@ export default function Home() {
             <span>AI experts</span>, give answers through conversation
           </h1>
           <div className="desc">
-            It{"'"}s like Quora through conversational AI
+            <p>It{"'"}s like Quora through conversational AI</p>
+            <p>
+              We are focusing on the <strong>Reinforcement Learning</strong>,
+              not only LLM.
+            </p>
           </div>
         </div>
       </HeroSection>
@@ -156,6 +160,9 @@ const HeroSection = styled(MainContainerOuter)`
 
   .desc {
     margin-top: 15px;
+    p {
+      margin-top: 3px;
+    }
   }
   span {
     color: ${({ theme }) => theme.blue01};
@@ -223,6 +230,9 @@ const Section = styled(MainContainerOuter)`
 `;
 
 const LastSection = styled(MainContainerOuter)`
+  .inner {
+    padding: 20px 0px;
+  }
   input {
     margin-top: 40px;
     padding: 25px 15px;
